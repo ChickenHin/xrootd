@@ -4,15 +4,15 @@ permissions:
   contents: read
 
 on:
-  push:
-    branches:
-      - master
-      - coverage
-    paths:
-      - .github/workflows/COV.yml
-      - 'src/**'
-      - 'tests/**'
-  pull_request:
+  # push:
+  #   branches:
+  #     - master
+  #     - coverage
+  #   paths:
+  #     - .github/workflows/COV.yml
+  #     - 'src/**'
+  #     - 'tests/**'
+  # pull_request:
   workflow_dispatch:
 
 concurrency:
@@ -24,7 +24,7 @@ defaults:
     shell: bash
 
 env:
-  CDASH: ${{ vars.CDASH }}
+  # CDASH: ${{ vars.CDASH }}
   CTEST_OUTPUT_ON_FAILURE: true
   DEBIAN_FRONTEND: noninteractive
 
@@ -50,14 +50,14 @@ jobs:
     - name: Build and Test with CTest
       run: ctest -C Debug -DCOVERAGE=1 --output-junit junit.xml -V -S test.cmake
 
-    - if: ${{ vars.CODECOV == 'true' }}
-      name: Upload test results to Codecov
-      uses: codecov/test-results-action@v1
-      with:
-        token: ${{ secrets.CODECOV_TOKEN }}
+    # - if: ${{ vars.CODECOV == 'true' }}
+    #   name: Upload test results to Codecov
+    #   uses: codecov/test-results-action@v1
+    #   with:
+    #     token: ${{ secrets.CODECOV_TOKEN }}
 
-    - if: ${{ vars.CODECOV == 'true' }}
-      name: Upload coverage to Codecov
-      uses: codecov/codecov-action@v4
-      with:
-        token: ${{ secrets.CODECOV_TOKEN }}
+    # - if: ${{ vars.CODECOV == 'true' }}
+    #   name: Upload coverage to Codecov
+    #   uses: codecov/codecov-action@v4
+    #   with:
+    #     token: ${{ secrets.CODECOV_TOKEN }}
