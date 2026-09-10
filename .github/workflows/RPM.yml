@@ -4,16 +4,16 @@ permissions:
   contents: read
 
 on:
-  push:
-    branches:
-      - master
-    paths-ignore:
-      - .gitignore
-      - .gitlab-ci.yml
-      - .mailmap
-      - '**.md'
-      - 'docs/**'
-      - 'docker/**'
+  # push:
+  #   branches:
+  #     - master
+  #   paths-ignore:
+  #     - .gitignore
+  #     - .gitlab-ci.yml
+  #     - .mailmap
+  #     - '**.md'
+  #     - 'docs/**'
+  #     - 'docker/**'
   workflow_dispatch:
 
 concurrency:
