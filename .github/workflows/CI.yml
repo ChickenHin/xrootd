@@ -4,10 +4,10 @@ permissions:
   contents: read
 
 on:
-  push:
-    branches:
-      - '**'
-  pull_request:
+  # push:
+  #   branches:
+  #     - '**'
+  # pull_request:
   workflow_dispatch:
 
 concurrency:
@@ -19,7 +19,7 @@ defaults:
     shell: bash
 
 env:
-  CDASH: ${{ vars.CDASH }}
+  # CDASH: ${{ vars.CDASH }}
   CMAKE_VERBOSE_MAKEFILE: true
   CTEST_OUTPUT_ON_FAILURE: true
 
